@@ -25,7 +25,6 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.kotlinx.coroutines.android)
         }
 
         androidMain.dependencies {
@@ -33,7 +32,6 @@ kotlin {
         }
 
         iosMain.dependencies {
-
         }
 
         commonTest.dependencies {
