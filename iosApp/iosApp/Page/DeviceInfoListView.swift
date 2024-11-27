@@ -1,11 +1,3 @@
-//
-//  DeviceInfoListView.swift
-//  iosApp
-//
-//  Created by Yogie Clinov Tanjung on 28/10/24.
-//  Copyright © 2024 orgName. All rights reserved.
-//
-
 import shared
 import SwiftUI
 

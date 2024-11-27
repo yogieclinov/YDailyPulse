@@ -20,8 +20,6 @@ class ArticlesPresenter : BaseViewPresenter() {
     private fun fetchArticles() = scope.launch {
         _articlesState.emit(ArticlesState(isLoading = true))
         delay(1000L)
-        _articlesState.emit(ArticlesState(errorMessage = "Something broken. Please wait..."))
-        delay(700L)
         _articlesState.emit(ArticlesState(articles = mockArticles))
     }.asUnit()
 
@@ -44,6 +42,12 @@ class ArticlesPresenter : BaseViewPresenter() {
             date = "2024-11-16",
             imageUrl = "https://fastly.picsum.photos/id/568/400/200.jpg?hmac=HNbN1XqWUosg1XEfmXYtKH1oOW_ReZdtwIqkYMuwLA0"
         ),
+        Article(
+            title = "Article 4",
+            desc = " 2394 lkajh efk rqkj3h 4k2j3qwkejhf 1213oihn",
+            date = "2024-11-16",
+            imageUrl = "https://fastly.picsum.photos/id/190/400/200.jpg?hmac=P-rBiaxl8VRkXRzsaRSvp_wzSuS6Ckq8-nOPRpoIf1M"
+        )
 
     )
 }

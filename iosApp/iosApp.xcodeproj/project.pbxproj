@@ -11,6 +11,9 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		772E23862CF72D1E0010616D /* ArticlesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E23852CF72D1E0010616D /* ArticlesPage.swift */; };
+		772E23892CF72DB90010616D /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E23882CF72DB90010616D /* Loader.swift */; };
+		772E238C2CF72DE70010616D /* ErrorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E238B2CF72DE70010616D /* ErrorText.swift */; };
 		77EA5F862CCEB44500EFB918 /* DeviceInfoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA5F852CCEB44500EFB918 /* DeviceInfoListView.swift */; };
 		77EA5F882CCEB96300EFB918 /* DeviceInfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA5F872CCEB96300EFB918 /* DeviceInfoPage.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +38,9 @@
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		772E23852CF72D1E0010616D /* ArticlesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesPage.swift; sourceTree = "<group>"; };
+		772E23882CF72DB90010616D /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		772E238B2CF72DE70010616D /* ErrorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorText.swift; sourceTree = "<group>"; };
 		77EA5F852CCEB44500EFB918 /* DeviceInfoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoListView.swift; sourceTree = "<group>"; };
 		77EA5F872CCEB96300EFB918 /* DeviceInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,15 +83,34 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				772E23872CF72D9B0010616D /* BaseView */,
+				772E23842CF72B9E0010616D /* Page */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
-				77EA5F852CCEB44500EFB918 /* DeviceInfoListView.swift */,
-				77EA5F872CCEB96300EFB918 /* DeviceInfoPage.swift */,
 			);
 			path = iosApp;
+			sourceTree = "<group>";
+		};
+		772E23842CF72B9E0010616D /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				77EA5F852CCEB44500EFB918 /* DeviceInfoListView.swift */,
+				77EA5F872CCEB96300EFB918 /* DeviceInfoPage.swift */,
+				772E23852CF72D1E0010616D /* ArticlesPage.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		772E23872CF72D9B0010616D /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				772E23882CF72DB90010616D /* Loader.swift */,
+				772E238B2CF72DE70010616D /* ErrorText.swift */,
+			);
+			path = BaseView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +206,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				77EA5F882CCEB96300EFB918 /* DeviceInfoPage.swift in Sources */,
+				772E23862CF72D1E0010616D /* ArticlesPage.swift in Sources */,
+				772E23892CF72DB90010616D /* Loader.swift in Sources */,
+				772E238C2CF72DE70010616D /* ErrorText.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				77EA5F862CCEB44500EFB918 /* DeviceInfoListView.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
