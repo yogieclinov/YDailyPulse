@@ -2,9 +2,29 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
+    
+    @Environment(\.dismiss)
+    private var dismiss
+    
+    @State private var shouldOpenDeviceInfo = false
 
 	var body: some View {
-        ArticlesPage(presenter: .init())
+        NavigationStack {
+            ArticlesPage(presenter: .init())
+                .toolbar {
+                    ToolbarItem {
+                        Button {
+                            shouldOpenDeviceInfo = true
+                        } label: {
+                            Label("Device Info", systemImage: "info.circle").labelStyle(TitleAndIconLabelStyle())
+                        }
+                        .popover(isPresented: $shouldOpenDeviceInfo, content: {
+                            DeviceInfoPage()
+                        })
+                    }
+                }
+        }
+        
 	}
 }
 
