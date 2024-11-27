@@ -1,13 +1,18 @@
 [versions]
 agp = "8.5.1"
 androidx-activityCompose = "1.8.0"
+coilCompose = "3.0.4"
 compose = "1.5.4"
 compose-material3 = "1.1.2"
 kotlin = "2.0.0"
 kotlinxCoroutinesAndroid = "1.7.2"
+kotlinxCoroutinesCore = "1.7.1"
+kotlinxCoroutinesCoreVersion = "1.9.0"
 lifecycleRuntimeKtx = "2.6.2"
 
 [libraries]
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilCompose" }
+coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coilCompose" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleRuntimeKtx" }
@@ -17,6 +22,7 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCoreVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
