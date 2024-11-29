@@ -1,4 +1,4 @@
-package com.clinov.ydailypulse.android.page
+package com.clinov.ydailypulse.android.deviceInfoPage
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,13 +13,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.clinov.ydailypulse.android.Toolbar
+import com.clinov.ydailypulse.android.baseView.ToolbarView
 import com.clinov.ydailypulse.getPlatform
 
 @Composable
-fun DeviceInfoPage() {
+fun DeviceInfoPage(
+    onClickNavIcon: () -> Unit
+) {
     Column {
-        Toolbar()
+        ToolbarView(onClickNavIcon)
         ContentView()
     }
 }
