@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.clinov.ydailypulse.android"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         applicationId = "com.clinov.ydailypulse.android"
         minSdk = 24
