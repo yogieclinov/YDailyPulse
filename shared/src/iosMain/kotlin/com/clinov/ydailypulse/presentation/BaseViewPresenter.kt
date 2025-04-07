@@ -1,4 +1,4 @@
-package com.clinov.ydailypulse
+package com.clinov.ydailypulse.presentation
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

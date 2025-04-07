@@ -1,4 +1,4 @@
-package com.clinov.ydailypulse
+package com.clinov.ydailypulse.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

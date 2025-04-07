@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -27,13 +26,10 @@ import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
 import coil3.request.crossfade
 import com.clinov.ydailypulse.android.baseView.AppBar
-import com.clinov.ydailypulse.android.baseView.ErrorText
 import com.clinov.ydailypulse.android.baseView.ErrorView
 import com.clinov.ydailypulse.android.baseView.Loader
-import com.clinov.ydailypulse.android.util.toDateFormat
-import com.clinov.ydailypulse.domain.model.Article
 import com.clinov.ydailypulse.presentation.ArticlesPresenter
-import com.clinov.ydailypulse.presentation.model.ErrorUi
+import com.clinov.ydailypulse.presentation.model.ArticleUiItem
 
 @Composable
 fun ArticlesPage(
@@ -50,7 +46,7 @@ fun ArticlesPage(
         if (errorUi != null) {
             ErrorView(presenter, errorUi)
         } else {
-            val articles = state.value.articles
+            val articles = state.value.uiModels
             if (articles.isNotEmpty()) {
                 ArticlesList(articles)
             }
@@ -59,7 +55,7 @@ fun ArticlesPage(
 }
 
 @Composable
-private fun ArticlesList(articles: List<Article>) {
+private fun ArticlesList(articles: List<ArticleUiItem>) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
     ) {
@@ -70,7 +66,7 @@ private fun ArticlesList(articles: List<Article>) {
 }
 
 @Composable
-private fun ArticleItem(article: Article) {
+private fun ArticleItem(article: ArticleUiItem) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -97,7 +93,7 @@ private fun ArticleItem(article: Article) {
         Text(text = article.desc)
         Spacer(modifier = Modifier.height(4.dp))
         Text(
-            text = article.date.toDateFormat(),
+            text = article.date,
             style = TextStyle(color = Color.Gray),
             modifier = Modifier.align(Alignment.End),
         )

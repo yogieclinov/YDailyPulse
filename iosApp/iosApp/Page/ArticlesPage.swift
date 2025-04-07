@@ -2,6 +2,28 @@ import SwiftUI
 import shared
 
 
+extension ArticlesPage {
+    
+    @MainActor
+    class ArticlesPresenterWrapper: ObservableObject {
+        let articlesPresenter: ArticlesPresenter
+        
+        init() {
+            articlesPresenter = ArticlesPresenter()
+            articlesState = articlesPresenter.articlesState.value
+        }
+        
+        @Published var articlesState: ArticlesState
+        
+        func startObserve() {
+            Task {
+                for await articlesS in articlesPresenter.articlesState {
+                    self.articlesState = articlesS
+                }
+            }
+        }
+    }
+}
 
 struct ArticlesPage: View {
     
@@ -13,11 +35,11 @@ struct ArticlesPage: View {
             if presenter.articlesState.isLoading {
                 Loader()
             }
-            if let error = presenter.articlesState.errorMessage {
-                ErrorText(message: error)
+            if let error = presenter.articlesState.error {
+                ErrorText(message: error.description)
             }
             if (!presenter.articlesState.articles.isEmpty) {
-                ArticlesList(articles: presenter.articlesState.articles)
+                ArticlesList(articles: presenter.articlesState.uiModels)
             }
         }.onAppear {
             self.presenter.startObserve()
@@ -38,7 +60,7 @@ struct AppBar: View {
 }
 
 struct ArticlesList: View {
-    var articles: [Article]
+    var articles: [ArticleUiItem]
     
     var body: some View {
         ScrollView {
@@ -52,7 +74,7 @@ struct ArticlesList: View {
 }
 
 struct ArticleItem: View {
-    var article: Article
+    var article: ArticleUiItem
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
