@@ -16,29 +16,31 @@ import androidx.navigation.compose.rememberNavController
 import com.clinov.ydailypulse.android.articlesPage.ArticlesPage
 import com.clinov.ydailypulse.android.deviceInfoPage.DeviceInfoPage
 import com.clinov.ydailypulse.android.router.PageNav
-import com.clinov.ydailypulse.articles.ArticlesPresenter
+import com.clinov.ydailypulse.presentation.ArticlesPresenter
 
+@Suppress("ktlint:standard:function-naming")
 @Composable
 fun AppScaffold(articlesPresenter: ArticlesPresenter) {
-
     val navController = rememberNavController()
 
     Scaffold {
         AppNavHost(
             navController = navController,
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(it),
-            articlesPresenter = articlesPresenter
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .padding(it),
+            articlesPresenter = articlesPresenter,
         )
     }
 }
 
+@Suppress("ktlint:standard:function-naming")
 @Composable
 fun AppNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier,
-    articlesPresenter: ArticlesPresenter
+    articlesPresenter: ArticlesPresenter,
 ) {
     NavHost(
         navController = navController,
@@ -47,23 +49,25 @@ fun AppNavHost(
         enterTransition = {
             slideIn(
                 animationSpec = tween(200),
-                initialOffset = { IntOffset(0, 10) })
+                initialOffset = { IntOffset(0, 10) },
+            )
         },
         exitTransition = {
             slideOut(
                 animationSpec = tween(200),
-                targetOffset = { IntOffset(0, 10) })
-        }
+                targetOffset = { IntOffset(0, 10) },
+            )
+        },
     ) {
         composable(PageNav.ARTICLES.route) {
             ArticlesPage(
                 onClickNavIcon = { navController.navigate(PageNav.ABOUT_DEVICE.route) },
-                presenter = articlesPresenter
+                presenter = articlesPresenter,
             )
         }
         composable(PageNav.ABOUT_DEVICE.route) {
             DeviceInfoPage(
-                onClickNavIcon = { navController.popBackStack() }
+                onClickNavIcon = { navController.popBackStack() },
             )
         }
     }

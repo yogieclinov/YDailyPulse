@@ -43,6 +43,7 @@
 		772E238B2CF72DE70010616D /* ErrorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorText.swift; sourceTree = "<group>"; };
 		77EA5F852CCEB44500EFB918 /* DeviceInfoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoListView.swift; sourceTree = "<group>"; };
 		77EA5F872CCEB96300EFB918 /* DeviceInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoPage.swift; sourceTree = "<group>"; };
+		8168C1EC2DA4185A00136AC9 /* ArticlesPresenterWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesPresenterWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +70,7 @@
 			children = (
 				7555FF7D242A565900829871 /* iosApp */,
 				7555FF7C242A565900829871 /* Products */,
+				8168C1EC2DA4185A00136AC9 /* ArticlesPresenterWrapper.swift */,
 			);
 			sourceTree = "<group>";
 		};

@@ -8,10 +8,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.clinov.ydailypulse.articles.ArticlesPresenter
+import com.clinov.ydailypulse.presentation.ArticlesPresenter
 
 class MainActivity : ComponentActivity() {
-
     private val presenter: ArticlesPresenter by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +19,7 @@ class MainActivity : ComponentActivity() {
             MyApplicationTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = MaterialTheme.colorScheme.background,
                 ) {
                     AppScaffold(articlesPresenter = presenter)
                 }
@@ -29,10 +28,10 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-//@Preview
-//@Composable
-//fun DefaultPreview() {
+// @Preview
+// @Composable
+// fun DefaultPreview() {
 //    MyApplicationTheme {
 //        DeviceInfoPage()
 //    }
-//}
+// }
