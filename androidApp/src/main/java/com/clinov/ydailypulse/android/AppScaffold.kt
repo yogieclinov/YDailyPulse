@@ -20,7 +20,7 @@ import com.clinov.ydailypulse.presentation.ArticlesPresenter
 
 @Suppress("ktlint:standard:function-naming")
 @Composable
-fun AppScaffold(articlesPresenter: ArticlesPresenter) {
+fun AppScaffold() {
     val navController = rememberNavController()
 
     Scaffold {
@@ -30,7 +30,6 @@ fun AppScaffold(articlesPresenter: ArticlesPresenter) {
                 Modifier
                     .fillMaxSize()
                     .padding(it),
-            articlesPresenter = articlesPresenter,
         )
     }
 }
@@ -40,7 +39,6 @@ fun AppScaffold(articlesPresenter: ArticlesPresenter) {
 fun AppNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier,
-    articlesPresenter: ArticlesPresenter,
 ) {
     NavHost(
         navController = navController,
@@ -62,7 +60,6 @@ fun AppNavHost(
         composable(PageNav.ARTICLES.route) {
             ArticlesPage(
                 onClickNavIcon = { navController.navigate(PageNav.ABOUT_DEVICE.route) },
-                presenter = articlesPresenter,
             )
         }
         composable(PageNav.ABOUT_DEVICE.route) {

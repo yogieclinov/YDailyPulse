@@ -9,7 +9,7 @@ extension ArticlesPage {
         let articlesPresenter: ArticlesPresenter
         
         init() {
-            articlesPresenter = ArticlesPresenter()
+            articlesPresenter = ArticlesInjector().articlesPresenter
             articlesState = articlesPresenter.articlesState.value
         }
         

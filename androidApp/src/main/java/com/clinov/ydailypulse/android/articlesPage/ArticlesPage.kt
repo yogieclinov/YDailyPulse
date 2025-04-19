@@ -25,16 +25,19 @@ import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
 import coil3.request.crossfade
+import coil3.request.error
+import com.clinov.ydailypulse.android.R
 import com.clinov.ydailypulse.android.baseView.AppBar
 import com.clinov.ydailypulse.android.baseView.ErrorView
 import com.clinov.ydailypulse.android.baseView.Loader
 import com.clinov.ydailypulse.presentation.ArticlesPresenter
 import com.clinov.ydailypulse.presentation.model.ArticleUiItem
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun ArticlesPage(
     onClickNavIcon: () -> Unit,
-    presenter: ArticlesPresenter,
+    presenter: ArticlesPresenter = koinViewModel<ArticlesPresenter>(),
 ) {
     val state = presenter.articlesState.collectAsState()
     Column {
@@ -76,7 +79,8 @@ private fun ArticleItem(article: ArticleUiItem) {
             model = ImageRequest
                 .Builder(LocalContext.current)
                 .data(article.imageUrl)
-                .crossfade(true)
+                .crossfade(false)
+                .error(R.drawable.placeholder)
                 .build(),
             contentDescription = null,
             modifier = Modifier

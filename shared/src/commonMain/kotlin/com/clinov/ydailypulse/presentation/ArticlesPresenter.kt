@@ -11,7 +11,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class ArticlesPresenter : BaseViewPresenter() {
+class ArticlesPresenter(
+    private val useCase: ArticlesUseCase
+): BaseViewPresenter() {
 
     private val _articlesState: MutableStateFlow<ArticlesState> = MutableStateFlow(ArticlesState())
     val articlesState: StateFlow<ArticlesState> get() = _articlesState
@@ -22,7 +24,7 @@ class ArticlesPresenter : BaseViewPresenter() {
 
     private fun fetchArticles() = scope.launch {
         _articlesState.emit(ArticlesState(isLoading = true))
-        onRetrieveArticles(ArticlesUseCase().fetchHeadlineArticlesRemote())
+        onRetrieveArticles(useCase.fetchHeadlineArticlesRemote())
     }.asUnit()
 
     private suspend fun onRetrieveArticles(
@@ -45,6 +47,6 @@ class ArticlesPresenter : BaseViewPresenter() {
 
     private fun onReloadPage() = scope.launch {
         _articlesState.value = articlesState.value.copy(isLoading = true)
-        onRetrieveArticles(ArticlesUseCase().fetchHeadlineArticlesRemote())
+        onRetrieveArticles(useCase.fetchHeadlineArticlesRemote())
     }.asUnit()
 }

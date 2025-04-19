@@ -1,13 +1,12 @@
 package com.clinov.ydailypulse.data.service
 
-import com.clinov.ydailypulse.data.datasource.RestClient
 import com.clinov.ydailypulse.data.model.ArticlesResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 
 class ArticlesServiceImpl(
-    private val httpClient: HttpClient = RestClient.instance,
+    private val httpClient: HttpClient,
 ) : ArticlesService {
     private val country = "us"
     private val category = "business"

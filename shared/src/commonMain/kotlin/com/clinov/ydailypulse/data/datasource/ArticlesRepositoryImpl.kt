@@ -5,7 +5,7 @@ import com.clinov.ydailypulse.data.service.ArticlesService
 import com.clinov.ydailypulse.data.service.ArticlesServiceImpl
 
 class ArticlesRepositoryImpl(
-    private val service: ArticlesService = ArticlesServiceImpl(),
+    private val service: ArticlesService,
 ) : ArticlesRepository {
 
     override suspend fun fetchHeadlineArticlesRemote(): ArticlesResponse =
