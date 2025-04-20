@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS HeadlineArticle (
+    title TEXT NOT NULL,
+    desc TEXT,
+    date TEXT NOT NULL,
+    imageUrl TEXT,
+    sourceUrl TEXT NOT NULL
+);
+
+insertArticle:
+INSERT INTO HeadlineArticle(title, desc, date, imageUrl, sourceUrl)
+VALUES(?, ?, ?, ?, ?);
+
+selectAllArticles:
+SELECT * FROM HeadlineArticle;
+
+removeAllArticles:
+DELETE FROM HeadlineArticle;

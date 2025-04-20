@@ -24,7 +24,7 @@ class ArticlesPresenter(
 
     private fun fetchArticles() = scope.launch {
         _articlesState.emit(ArticlesState(isLoading = true))
-        onRetrieveArticles(useCase.fetchHeadlineArticlesRemote())
+        onRetrieveArticles(useCase.fetchHeadlineArticles())
     }.asUnit()
 
     private suspend fun onRetrieveArticles(
@@ -47,6 +47,6 @@ class ArticlesPresenter(
 
     private fun onReloadPage() = scope.launch {
         _articlesState.value = articlesState.value.copy(isLoading = true)
-        onRetrieveArticles(useCase.fetchHeadlineArticlesRemote())
+        onRetrieveArticles(useCase.fetchHeadlineArticles())
     }.asUnit()
 }

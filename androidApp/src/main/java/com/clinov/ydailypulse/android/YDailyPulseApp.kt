@@ -1,6 +1,7 @@
 package com.clinov.ydailypulse.android
 
 import android.app.Application
+import com.clinov.ydailypulse.android.di.databaseModule
 import com.clinov.ydailypulse.android.di.presenterModules
 import com.clinov.ydailypulse.di.sharedDiModules
 import org.koin.android.ext.koin.androidContext
@@ -14,7 +15,7 @@ class YDailyPulseApp : Application() {
     }
 
     private fun initKoin() {
-        val modules = sharedDiModules + presenterModules
+        val modules = sharedDiModules + presenterModules + databaseModule
         startKoin {
             androidContext(this@YDailyPulseApp)
             modules(modules)

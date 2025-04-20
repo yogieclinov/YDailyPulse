@@ -5,7 +5,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ArticleResponse(
-    @SerialName("source") var source: SourceResponse? = null,
     @SerialName("author") var author: String? = null,
     @SerialName("title") var title: String? = null,
     @SerialName("description") var description: String? = null,
