@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS TableAccess (
+    name TEXT NOT NULL PRIMARY KEY,
+    lastUpdated INTEGER
+);
+
+insertTableAccess:
+REPLACE INTO TableAccess(name, lastUpdated) VALUES(?, ?);
+
+getTable:
+SELECT * FROM TableAccess WHERE name = ?;
+
+removeAllTableAccess:
+DELETE FROM TableAccess;
