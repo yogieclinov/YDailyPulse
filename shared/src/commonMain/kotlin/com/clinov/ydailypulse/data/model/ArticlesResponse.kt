@@ -6,5 +6,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ArticlesResponse(
     @SerialName("totalResults") var totalResults: Int? = null,
-    @SerialName("articles") var articles: ArrayList<ArticleResponse>? = null,
+    @SerialName("articles") var articles: List<ArticleResponse>? = null,
 ) : BaseResponse()
