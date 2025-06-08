@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.skie)
     kotlin("plugin.serialization") version "2.1.20"
     alias(libs.plugins.sqlDelight)
+    alias(libs.plugins.mokkery)
 }
 
 kotlin {
@@ -39,6 +40,13 @@ kotlin {
             implementation(libs.sql.coroutines.extensions)
         }
 
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+            implementation(libs.kotlin.test.annotations.common)
+            implementation(libs.kotlinx.coroutines.test)
+            implementation(libs.androidx.core.testing)
+        }
+
         androidMain.dependencies {
             implementation(libs.androidx.lifecycle.viewmodel.ktx)
             implementation(libs.ktor.client.android)
@@ -48,10 +56,6 @@ kotlin {
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
             implementation(libs.sql.native.driver)
-        }
-
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
         }
     }
 }
